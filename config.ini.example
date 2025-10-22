@@ -1,0 +1,36 @@
+[Paths]
+watch_directory = /home/nick/Public/ai-automator/
+obsidian_vault_path = /home/nick/Obsidian Vault/Auto_Notes
+transcript_cache_directory = .deepgram_cache
+
+[NVIDIA_API]
+api_url = https://integrate.api.nvidia.com/v1/chat/completions
+model = deepseek-ai/deepseek-v3.1-terminus
+
+[File_Filtering]
+allowed_extensions = .mp4, .mov, .avi, .mp3, .wav
+
+[Notifications]
+type = none
+# Доступные типы: none, email, telegram
+
+# Настройки для email уведомлений
+; smtp_server = smtp.gmail.com
+; smtp_port = 587
+; email_address = your_email@gmail.com
+; email_password = your_app_password
+; recipient_email = recipient@gmail.com
+
+# Настройки для Telegram уведомлений
+; telegram_bot_token = your_telegram_bot_token
+; telegram_chat_id = your_telegram_chat_id
+
+[Logging]
+level = INFO
+# Доступные уровни: DEBUG, INFO, WARNING, ERROR, CRITICAL
+
+[LLM]
+# Пользовательские инструкции для LLM
+custom_prompt_file = custom_prompt.txt
+# Теги, которые не должны использоваться в заметках (оставьте пустым, если не нужно запрещать теги)
+forbidden_tags = 

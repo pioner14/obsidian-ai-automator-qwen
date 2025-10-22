@@ -40,20 +40,11 @@ Before running the project, ensure you have the following installed and configur
     pip install watchdog
     ```
 6.  **Configuration File (`config.ini`):**
-    Create a `config.ini` file in the project root. This file will store paths and API settings. An example `config.ini` is:
-    ```ini
-    [Paths]
-    watch_directory = /home/nick/Public/ai-automator/
-    obsidian_vault_path = /home/nick/Obsidian Vault/Auto_Notes
-    transcript_cache_directory = .deepgram_cache
-
-    [NVIDIA_API]
-    api_url = https://integrate.api.nvidia.com/v1/chat/completions
-    model = deepseek-ai/deepseek-v3.1-terminus
-
-    [File_Filtering]
-    allowed_extensions = .mp4, .mov, .avi, .mp3, .wav
+    Create a `config.ini` file in the project root. This file will store paths and API settings. Use the provided `config.ini.example` file as a template:
+    ```bash
+    cp config.ini.example config.ini
     ```
+    Then edit `config.ini` with your specific settings.
 7.  **Obsidian Vault:**
     Ensure `obsidian_vault_path` in `config.ini` is correctly set to the desired directory within your Obsidian vault where notes should be saved (e.g., `/home/nick/Obsidian_Vault/Auto_Notes`).
 
