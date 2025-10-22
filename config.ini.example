@@ -13,6 +13,8 @@ allowed_extensions = .mp4, .mov, .avi, .mp3, .wav
 [Notifications]
 type = telegram
 ; Доступные типы: none, email, telegram
+; Включить уведомления об успешных операциях (по умолчанию: false)
+success_notifications = false
 
 ; Настройки для email уведомлений
 ; smtp_server = smtp.gmail.com

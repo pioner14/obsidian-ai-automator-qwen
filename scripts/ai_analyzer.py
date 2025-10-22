@@ -407,6 +407,16 @@ def main():
 
     logging.info(f"Успех. Obsidian заметка создана: {output_path}")
     print(output_path)  # Выводим путь к созданному файлу для bash-скрипта
+    
+    # Отправляем уведомление об успешной обработке, если включено в настройках
+    try:
+        notification_success_enabled = config.getboolean('Notifications', 'success_notifications', fallback=False)
+        if notification_success_enabled:
+            success_message = f"Успешно создана заметка Obsidian: {os.path.basename(output_path)}"
+            send_notification(success_message, level="INFO")
+    except configparser.NoSectionError:
+        pass  # Если секция [Notifications] не определена, просто продолжаем без уведомления
+    
     return output_path
 
 if __name__ == "__main__":
