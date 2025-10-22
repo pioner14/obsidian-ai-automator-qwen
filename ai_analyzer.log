@@ -1,0 +1,121 @@
+2025-10-21 19:57:13,884 - INFO - Запуск скрипта ai_analyzer.py
+2025-10-21 19:57:13,884 - INFO - Начало транскрипции видео с Deepgram API: /home/nick/Public/ai-automator/new_dummy_test_video_2.mp4...
+2025-10-21 19:57:13,884 - INFO - Кэшированный транскрипт для new_dummy_test_video_2.mp4 не найден или поврежден. Выполняем транскрипцию с Deepgram API...
+2025-10-21 19:57:14,772 - ERROR - Ошибка при обращении к Deepgram API: 400 Client Error: Bad Request for url: https://api.deepgram.com/v1/listen?punctuate=true&diarize=true&language=ru&model=nova-2
+2025-10-21 19:57:14,772 - ERROR - УВЕДОМЛЕНИЕ: Ошибка при обращении к Deepgram API: 400 Client Error: Bad Request for url: https://api.deepgram.com/v1/listen?punctuate=true&diarize=true&language=ru&model=nova-2
+2025-10-21 20:21:20,143 - INFO - Запуск скрипта ai_analyzer.py
+2025-10-21 20:21:20,143 - INFO - Начало транскрипции видео с Deepgram API: /home/nick/Public/ai-automator/new_dummy_test_video_2.mp4...
+2025-10-21 20:21:20,143 - INFO - Кэшированный транскрипт для new_dummy_test_video_2.mp4 не найден или поврежден. Выполняем транскрипцию с Deepgram API...
+2025-10-21 20:21:21,010 - ERROR - Ошибка при обращении к Deepgram API: 400 Client Error: Bad Request for url: https://api.deepgram.com/v1/listen?punctuate=true&diarize=true&language=ru&model=nova-2
+2025-10-21 20:21:21,010 - ERROR - УВЕДОМЛЕНИЕ: Ошибка при обращении к Deepgram API: 400 Client Error: Bad Request for url: https://api.deepgram.com/v1/listen?punctuate=true&diarize=true&language=ru&model=nova-2
+2025-10-21 21:13:59,323 - INFO - Запуск скрипта ai_analyzer.py
+2025-10-21 21:13:59,323 - INFO - Начало транскрипции видео с Deepgram API: /home/nick/Public/ai-automator/jwb-131_U_07_r240P.mp4...
+2025-10-21 21:13:59,323 - INFO - Кэшированный транскрипт для jwb-131_U_07_r240P.mp4 не найден или поврежден. Выполняем транскрипцию с Deepgram API...
+2025-10-21 21:20:28,202 - ERROR - Ошибка при обращении к Deepgram API: 408 Client Error: Request Timeout for url: https://api.deepgram.com/v1/listen?punctuate=true&diarize=true&language=ru&model=nova-2
+2025-10-21 21:20:28,202 - ERROR - УВЕДОМЛЕНИЕ: Ошибка при обращении к Deepgram API: 408 Client Error: Request Timeout for url: https://api.deepgram.com/v1/listen?punctuate=true&diarize=true&language=ru&model=nova-2
+2025-10-21 21:43:51,598 - INFO - Запуск скрипта ai_analyzer.py
+2025-10-21 21:43:51,598 - INFO - Начало транскрипции видео с Deepgram API: /home/nick/Public/ai-automator/jwb-131_U_07_r240P.mp4...
+2025-10-21 21:43:51,598 - INFO - Кэшированный транскрипт для jwb-131_U_07_r240P.mp4 не найден или поврежден. Выполняем транскрипцию с Deepgram API...
+2025-10-21 21:44:05,339 - INFO - Полный JSON-транскрипт Deepgram сохранен в кэш: /home/nick/Projects/obsidian-ai-automator/scripts/../.deepgram_cache/jwb-131_U_07_r240P.mp4.json
+2025-10-21 21:44:05,339 - INFO - Чистый текстовый транскрипт сохранен в кэш: /home/nick/Projects/obsidian-ai-automator/scripts/../.deepgram_cache/jwb-131_U_07_r240P.mp4.txt
+2025-10-21 21:44:05,341 - INFO - Транскрипция завершена.
+2025-10-21 21:44:05,341 - INFO - Начало анализа LLM (NVIDIA API)...
+2025-10-21 21:48:55,909 - INFO - Запуск скрипта ai_analyzer.py
+2025-10-21 21:48:55,909 - INFO - Начало транскрипции видео с Deepgram API: /home/nick/Projects/obsidian-ai-automator/.deepgram_cache/jwb-131_U_07_r240P.mp4.txt...
+2025-10-21 21:48:55,909 - INFO - Кэшированный транскрипт для jwb-131_U_07_r240P.mp4.txt не найден или поврежден. Выполняем транскрипцию с Deepgram API...
+2025-10-21 21:48:56,862 - ERROR - Ошибка при обращении к Deepgram API: 400 Client Error: Bad Request for url: https://api.deepgram.com/v1/listen?punctuate=true&diarize=true&language=ru&model=nova-2
+2025-10-21 21:48:56,862 - ERROR - УВЕДОМЛЕНИЕ: Ошибка при обращении к Deepgram API: 400 Client Error: Bad Request for url: https://api.deepgram.com/v1/listen?punctuate=true&diarize=true&language=ru&model=nova-2
+2025-10-21 21:51:25,361 - INFO - Запуск скрипта ai_analyzer.py
+2025-10-21 21:51:25,361 - INFO - Используем предоставленный текстовый файл как транскрипт: /home/nick/Projects/obsidian-ai-automator/.deepgram_cache/jwb-131_U_07_r240P.mp4.txt...
+2025-10-21 21:51:25,361 - INFO - Транскрипт успешно прочитан из файла.
+2025-10-21 21:51:25,361 - INFO - Начало анализа LLM (NVIDIA API)...
+2025-10-21 21:56:27,834 - ERROR - Ошибка при обращении к NVIDIA API: 504 Server Error: Gateway Timeout for url: https://integrate.api.nvidia.com/v1/chat/completions
+2025-10-21 21:56:27,834 - ERROR - УВЕДОМЛЕНИЕ: Ошибка при обращении к NVIDIA API: 504 Server Error: Gateway Timeout for url: https://integrate.api.nvidia.com/v1/chat/completions
+2025-10-21 21:56:27,836 - INFO - Анализ LLM (NVIDIA API) завершен.
+2025-10-21 21:56:27,836 - ERROR - Ошибка LLM-анализа: Error communicating with NVIDIA API: 504 Server Error: Gateway Timeout for url: https://integrate.api.nvidia.com/v1/chat/completions
+2025-10-21 21:56:27,836 - ERROR - УВЕДОМЛЕНИЕ: Ошибка LLM-анализа: Error communicating with NVIDIA API: 504 Server Error: Gateway Timeout for url: https://integrate.api.nvidia.com/v1/chat/completions
+2025-10-21 21:58:13,490 - INFO - Запуск скрипта ai_analyzer.py
+2025-10-21 21:58:13,494 - INFO - Используем предоставленный текстовый файл как транскрипт: /home/nick/Projects/obsidian-ai-automator/.deepgram_cache/jwb-131_U_07_r240P.mp4.txt...
+2025-10-21 21:58:13,495 - INFO - Транскрипт успешно прочитан из файла.
+2025-10-21 21:58:13,495 - INFO - Начало анализа LLM (NVIDIA API)...
+2025-10-21 22:03:13,803 - ERROR - Ошибка при обращении к NVIDIA API: HTTPSConnectionPool(host='integrate.api.nvidia.com', port=443): Read timed out. (read timeout=300)
+2025-10-21 22:03:13,803 - ERROR - УВЕДОМЛЕНИЕ: Ошибка при обращении к NVIDIA API: HTTPSConnectionPool(host='integrate.api.nvidia.com', port=443): Read timed out. (read timeout=300)
+2025-10-21 22:03:13,803 - INFO - Анализ LLM (NVIDIA API) завершен.
+2025-10-21 22:03:13,803 - ERROR - Ошибка LLM-анализа: Error communicating with NVIDIA API: HTTPSConnectionPool(host='integrate.api.nvidia.com', port=443): Read timed out. (read timeout=300)
+2025-10-21 22:03:13,803 - ERROR - УВЕДОМЛЕНИЕ: Ошибка LLM-анализа: Error communicating with NVIDIA API: HTTPSConnectionPool(host='integrate.api.nvidia.com', port=443): Read timed out. (read timeout=300)
+2025-10-21 22:05:05,628 - INFO - Запуск скрипта ai_analyzer.py
+2025-10-21 22:05:05,628 - INFO - Используем предоставленный текстовый файл как транскрипт: /home/nick/Projects/obsidian-ai-automator/.deepgram_cache/jwb-131_U_07_r240P.mp4.txt...
+2025-10-21 22:05:05,628 - INFO - Транскрипт успешно прочитан из файла.
+2025-10-21 22:05:05,628 - INFO - Начало анализа LLM (NVIDIA API)...
+2025-10-21 22:05:05,992 - ERROR - Ошибка при обращении к NVIDIA API: 404 Client Error: Not Found for url: https://integrate.api.nvidia.com/v1/chat/completions
+2025-10-21 22:05:05,993 - ERROR - УВЕДОМЛЕНИЕ: Ошибка при обращении к NVIDIA API: 404 Client Error: Not Found for url: https://integrate.api.nvidia.com/v1/chat/completions
+2025-10-21 22:05:05,994 - INFO - Анализ LLM (NVIDIA API) завершен.
+2025-10-21 22:05:05,994 - ERROR - Ошибка LLM-анализа: Error communicating with NVIDIA API: 404 Client Error: Not Found for url: https://integrate.api.nvidia.com/v1/chat/completions
+2025-10-21 22:05:05,994 - ERROR - УВЕДОМЛЕНИЕ: Ошибка LLM-анализа: Error communicating with NVIDIA API: 404 Client Error: Not Found for url: https://integrate.api.nvidia.com/v1/chat/completions
+2025-10-21 22:06:33,676 - INFO - Запуск скрипта ai_analyzer.py
+2025-10-21 22:06:33,676 - INFO - Используем предоставленный текстовый файл как транскрипт: /home/nick/Projects/obsidian-ai-automator/.deepgram_cache/jwb-131_U_07_r240P.mp4.txt...
+2025-10-21 22:06:33,677 - INFO - Транскрипт успешно прочитан из файла.
+2025-10-21 22:06:33,677 - INFO - Начало анализа LLM (NVIDIA API)...
+2025-10-21 22:06:41,356 - INFO - Анализ LLM (NVIDIA API) завершен.
+2025-10-21 22:06:41,357 - INFO - Успех. Obsidian заметка создана: /home/nick/Obsidian Vault/Auto_Notes/Анализ_Ключевых_Примеров.md
+2025-10-21 22:39:14,230 - INFO - Запуск скрипта ai_analyzer.py
+2025-10-21 22:39:14,231 - INFO - Начало транскрипции видео с Deepgram API: /home/nick/Public/ai-automator/jwb-131_U_07_r240P.mp4...
+2025-10-21 22:39:14,231 - INFO - Используем кэшированный текстовый транскрипт для jwb-131_U_07_r240P.mp4
+2025-10-21 22:39:14,231 - INFO - Транскрипция завершена.
+2025-10-21 22:39:14,231 - INFO - Начало анализа LLM (NVIDIA API)...
+2025-10-21 22:44:16,692 - ERROR - Ошибка при обращении к NVIDIA API: 504 Server Error: Gateway Timeout for url: https://integrate.api.nvidia.com/v1/chat/completions
+2025-10-21 22:44:16,693 - ERROR - УВЕДОМЛЕНИЕ: Ошибка при обращении к NVIDIA API: 504 Server Error: Gateway Timeout for url: https://integrate.api.nvidia.com/v1/chat/completions
+2025-10-21 22:44:16,693 - INFO - Анализ LLM (NVIDIA API) завершен.
+2025-10-21 22:44:16,694 - ERROR - Ошибка LLM-анализа: Error communicating with NVIDIA API: 504 Server Error: Gateway Timeout for url: https://integrate.api.nvidia.com/v1/chat/completions
+2025-10-21 22:44:16,694 - ERROR - УВЕДОМЛЕНИЕ: Ошибка LLM-анализа: Error communicating with NVIDIA API: 504 Server Error: Gateway Timeout for url: https://integrate.api.nvidia.com/v1/chat/completions
+2025-10-21 22:46:31,440 - INFO - Запуск скрипта ai_analyzer.py
+2025-10-21 22:46:31,440 - INFO - Начало транскрипции видео с Deepgram API: /home/nick/Public/ai-automator/jwb-131_U_07_r240P.mp4...
+2025-10-21 22:46:31,440 - INFO - Используем кэшированный текстовый транскрипт для jwb-131_U_07_r240P.mp4
+2025-10-21 22:46:31,440 - INFO - Транскрипция завершена.
+2025-10-21 22:46:31,440 - INFO - Начало анализа LLM (NVIDIA API)...
+2025-10-21 22:46:39,138 - INFO - Анализ LLM (NVIDIA API) завершен.
+2025-10-21 22:46:39,139 - INFO - Успех. Obsidian заметка создана: /home/nick/Obsidian Vault/Auto_Notes/Анализ_Ключевых_Примеров.md
+2025-10-21 22:50:29,914 - INFO - Запуск скрипта ai_analyzer.py
+2025-10-21 22:50:29,914 - INFO - Начало транскрипции видео с Deepgram API: /home/nick/Public/ai-automator/jwb-131_U_07_r240P.mp4...
+2025-10-21 22:50:29,914 - INFO - Используем кэшированный текстовый транскрипт для jwb-131_U_07_r240P.mp4
+2025-10-21 22:50:29,914 - INFO - Транскрипция завершена.
+2025-10-21 22:50:29,914 - INFO - Начало анализа LLM (NVIDIA API)...
+2025-10-21 22:50:37,490 - INFO - Анализ LLM (NVIDIA API) завершен.
+2025-10-21 22:50:37,491 - INFO - Успех. Obsidian заметка создана: /home/nick/Obsidian Vault/Auto_Notes/Анализ_Ключевых_Примеров.md
+2025-10-21 22:54:24,257 - INFO - Запуск скрипта ai_analyzer.py
+2025-10-21 22:54:24,257 - INFO - Начало транскрипции видео с Deepgram API: /home/nick/Public/ai-automator/jwb-131_U_07_r240P.mp4...
+2025-10-21 22:54:24,257 - INFO - Используем кэшированный текстовый транскрипт для jwb-131_U_07_r240P.mp4
+2025-10-21 22:54:24,257 - INFO - Транскрипция завершена.
+2025-10-21 22:54:24,257 - INFO - Начало анализа LLM (NVIDIA API)...
+2025-10-21 22:54:32,131 - INFO - Анализ LLM (NVIDIA API) завершен.
+2025-10-21 22:54:32,133 - INFO - Успех. Obsidian заметка создана: /home/nick/Obsidian Vault/Auto_Notes/Анализ_Ключевых_Примеров.md
+2025-10-21 22:58:22,068 - INFO - Запуск скрипта ai_analyzer.py
+2025-10-21 22:58:22,068 - INFO - Начало транскрипции видео с Deepgram API: /home/nick/Public/ai-automator/jwb-131_U_07_r240P.mp4...
+2025-10-21 22:58:22,068 - INFO - Используем кэшированный текстовый транскрипт для jwb-131_U_07_r240P.mp4
+2025-10-21 22:58:22,068 - INFO - Транскрипция завершена.
+2025-10-21 22:58:22,068 - INFO - Начало анализа LLM (NVIDIA API)...
+2025-10-21 22:58:29,761 - INFO - Анализ LLM (NVIDIA API) завершен.
+2025-10-21 22:58:29,762 - INFO - Успех. Obsidian заметка создана: /home/nick/Obsidian Vault/Auto_Notes/Анализ_Ключевых_Примеров.md
+2025-10-22 08:10:31,683 - INFO - Запуск скрипта ai_analyzer.py
+2025-10-22 08:10:31,684 - INFO - Начало транскрипции видео с Deepgram API: /home/nick/Public/ai-automator/jwb-122_U_05_r240P.mp4...
+2025-10-22 08:10:31,684 - INFO - Кэшированный транскрипт для jwb-122_U_05_r240P.mp4 не найден или поврежден. Выполняем транскрипцию с Deepgram API...
+2025-10-22 08:11:16,015 - INFO - Полный JSON-транскрипт Deepgram сохранен в кэш: /home/nick/Projects/obsidian-ai-automator/scripts/../.deepgram_cache/jwb-122_U_05_r240P.mp4.json
+2025-10-22 08:11:16,015 - INFO - Чистый текстовый транскрипт сохранен в кэш: /home/nick/Projects/obsidian-ai-automator/scripts/../.deepgram_cache/jwb-122_U_05_r240P.mp4.txt
+2025-10-22 08:11:16,018 - INFO - Транскрипция завершена.
+2025-10-22 08:11:16,018 - INFO - Начало анализа LLM (NVIDIA API)...
+2025-10-22 08:11:29,862 - INFO - Анализ LLM (NVIDIA API) завершен.
+2025-10-22 08:11:29,866 - INFO - Успех. Obsidian заметка создана: /home/nick/Obsidian Vault/Auto_Notes/Назначение_в_Албанию_после_падения_Берлинской_стены.md
+2025-10-22 08:59:10,023 - INFO - Запуск скрипта ai_analyzer.py
+2025-10-22 08:59:10,023 - INFO - Начало транскрипции видео с Deepgram API: /home/nick/Public/ai-automator/jwb-122_U_05_r240P.mp4...
+2025-10-22 08:59:10,023 - INFO - Используем кэшированный текстовый транскрипт для jwb-122_U_05_r240P.mp4
+2025-10-22 08:59:10,023 - INFO - Транскрипция завершена.
+2025-10-22 08:59:10,023 - INFO - Начало анализа LLM (NVIDIA API)...
+2025-10-22 08:59:20,085 - INFO - Анализ LLM (NVIDIA API) завершен.
+2025-10-22 08:59:20,086 - INFO - Успех. Obsidian заметка создана: /home/nick/Obsidian Vault/Auto_Notes/Путь_служения_от_Доминиканы_до_Албании.md
+2025-10-22 09:03:01,909 - INFO - Запуск скрипта ai_analyzer.py
+2025-10-22 09:03:01,909 - INFO - Начало транскрипции видео с Deepgram API: /home/nick/Public/ai-automator/jwb-122_U_05_r240P.mp4...
+2025-10-22 09:03:01,909 - INFO - Используем кэшированный текстовый транскрипт для jwb-122_U_05_r240P.mp4
+2025-10-22 09:03:01,909 - INFO - Транскрипция завершена.
+2025-10-22 09:03:01,909 - INFO - Начало анализа LLM (NVIDIA API)...
+2025-10-22 09:03:10,123 - INFO - Анализ LLM (NVIDIA API) завершен.
+2025-10-22 09:03:10,124 - INFO - Успех. Obsidian заметка создана: /home/nick/Obsidian Vault/Auto_Notes/Назначения_Иеговы_от_Доминиканы_до_Албании.md
