@@ -44,7 +44,9 @@ Before running the project, ensure you have the following installed and configur
     ```bash
     cp config.ini.example config.ini
     ```
-    Then edit `config.ini` with your specific settings.
+    Then edit `config.ini` with your specific settings including API keys, paths, and notification settings.
+7.  **Custom LLM Prompt (Optional):**
+    You can customize the prompt used by the LLM to analyze transcripts by editing `custom_prompt.txt`. The system will use this file to generate more relevant tags based on the content of the transcript.
 7.  **Obsidian Vault:**
     Ensure `obsidian_vault_path` in `config.ini` is correctly set to the desired directory within your Obsidian vault where notes should be saved (e.g., `/home/nick/Obsidian_Vault/Auto_Notes`).
 
