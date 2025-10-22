@@ -7,6 +7,7 @@ import time
 import logging
 import configparser
 import hashlib
+from prompt_manager import PromptManager
 
 def send_notification(message, level="ERROR"):
     """Отправляет уведомления через различные каналы (email, Telegram)."""
@@ -116,13 +117,7 @@ NVIDIA_MODEL = config.get('NVIDIA_API', 'model')
 OBSIDIAN_VAULT_PATH = os.path.expanduser(config.get('Paths', 'obsidian_vault_path'))
 TRANSCRIPT_CACHE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", config.get('Paths', 'transcript_cache_directory'))
 
-# Настройки для LLM
-try:
-    CUSTOM_PROMPT_FILE = config.get('LLM', 'custom_prompt_file', fallback='custom_prompt.txt')
-    FORBIDDEN_TAGS = [tag.strip() for tag in config.get('LLM', 'forbidden_tags', fallback='').split(',') if tag.strip()]
-except configparser.NoSectionError:
-    CUSTOM_PROMPT_FILE = 'custom_prompt.txt'
-    FORBIDDEN_TAGS = []
+
 # ---------------------
 
 def calculate_file_hash(file_path):
@@ -278,7 +273,6 @@ def transcribe_with_deepgram(video_path):
         logging.error(error_message)
         send_notification(error_message)
         sys.exit(1)
-
 def analyze_with_nvidia_llm(transcript):
     """Отправляет транскрипт в NVIDIA API и получает структурированный Markdown."""
     if not NVIDIA_API_KEY:
@@ -286,41 +280,11 @@ def analyze_with_nvidia_llm(transcript):
         logging.error(error_message)
         send_notification(error_message)
         sys.exit(1)
-    prompt = f"""Ты — ИИ-аналитик, помогающий исследователю из Общества Сторожевой Башни. 
-    Твоя задача — проанализировать предоставленную стенограмму лекции на русском языке, чтобы найти ключевые "наглядные пособия" или "примеры" и объяснения библейских стихов для дальнейшего исследования.
-    **Крайне важно:**
-    1. Отвечай **ТОЛЬКО НА РУССКОМ ЯЗЫКЕ**.
-    2. Используй только информацию из предоставленного транскрипта. Не генерируй информацию извне и не галлюцинируй.
-
-    Выполни 3 шага:
-    1. **Заголовок:** Сгенерируй краткий и точный заголовок (не более 10 слов) из транскрипта. Заголовок должен быть без квадратных скобок.
-    2. **Примеры:** Выдели **3-5** наиболее ярких наглядных примеров (иллюстраций) и объяснений библейских стихов, которые использовал спикер. Укажи **тайм-код** (в формате HH:MM:SS) начала каждого примера из транскрипта.
-    3. **Формат:** Отформатируй ВСЕ в формат Obsidian Markdown, используя YAML Frontmatter и Callouts. Добавь к каждому примеру **понятные теги**, которые помогут легко найти его в Obsidian (например, #БиблейскийПример, #НаглядноеПособие, #ОбъяснениеСтиха). **Не включай ничего, кроме запрошенного Markdown**.
-
-    ---
-    ### ТРЕБУЕМЫЙ ФОРМАТ OBSIDIAN ###
-    ```markdown
-    ---
-    title: Твой сгенерированный заголовок
-    tags: [jw, research, transcript, {NVIDIA_MODEL}]
-    ---
-
-    ## Анализ: Ключевые Примеры (Наглядные Пособия)
-
-    > [!example|collapse open] [Название Примера, HH:MM:SS] #Тег1 #Тег2
-    > [Твой краткий пересказ Примера, должен быть коротким]
-
-    > [!example|collapse open] [Название Второго Примера, HH:MM:SS] #Тег3
-    > [Твой краткий пересказ Второго Примера, должен быть коротким]
     
-    ## Полный Транскрипт
-    ```
-    ---
-    
-    ### ТРАНСКРИПТ ДЛЯ АНАЛИЗА:
-    {transcript}
-    """
-    
+    # Создаем экземпляр PromptManager и получаем промпт
+    prompt_manager = PromptManager()
+    prompt = prompt_manager.get_analysis_prompt(transcript, NVIDIA_MODEL)
+
     headers = {
         "Authorization": f"Bearer {NVIDIA_API_KEY}",
         "Accept": "application/json",
@@ -340,11 +304,13 @@ def analyze_with_nvidia_llm(transcript):
     try:
         response = requests.post(NVIDIA_API_URL, headers=headers, json=data)
         response.raise_for_status()
-        return response.json().get('choices')[0].get('message').get('content', '')
+        return response.json().get("choices")[0].get("message").get("content", "")
     except Exception as e:
         error_message = f"Ошибка при обращении к NVIDIA API: {e}"
         logging.error(error_message)
         send_notification(error_message)
+        return f"Error communicating with NVIDIA API: {e}"
+
         return f"Error communicating with NVIDIA API: {e}"
 
 def main():
