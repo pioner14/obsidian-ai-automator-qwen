@@ -115,6 +115,14 @@ NVIDIA_API_URL = config.get('NVIDIA_API', 'api_url')
 NVIDIA_MODEL = config.get('NVIDIA_API', 'model')
 OBSIDIAN_VAULT_PATH = os.path.expanduser(config.get('Paths', 'obsidian_vault_path'))
 TRANSCRIPT_CACHE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", config.get('Paths', 'transcript_cache_directory'))
+
+# Настройки для LLM
+try:
+    CUSTOM_PROMPT_FILE = config.get('LLM', 'custom_prompt_file', fallback='custom_prompt.txt')
+    FORBIDDEN_TAGS = [tag.strip() for tag in config.get('LLM', 'forbidden_tags', fallback='').split(',') if tag.strip()]
+except configparser.NoSectionError:
+    CUSTOM_PROMPT_FILE = 'custom_prompt.txt'
+    FORBIDDEN_TAGS = []
 # ---------------------
 
 def calculate_file_hash(file_path):

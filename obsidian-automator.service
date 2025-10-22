@@ -1,0 +1,14 @@
+[Unit]
+Description=Obsidian AI Automator Service
+After=network.target
+
+[Service]
+Type=simple
+User=nick
+WorkingDirectory=/home/nick/Projects/obsidian-ai-automator-qwen
+ExecStart=/home/nick/Projects/obsidian-ai-automator-qwen/venv/bin/python /home/nick/Projects/obsidian-ai-automator-qwen/scripts/inotify_monitor.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
