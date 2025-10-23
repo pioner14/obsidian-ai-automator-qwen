@@ -6,11 +6,20 @@ This project provides an automated workflow to transcribe video files using Deep
 
 The workflow consists of a Bash wrapper script that orchestrates audio extraction, transcription, and LLM-driven analysis, ultimately saving the processed information into an Obsidian vault.
 
+## New Modular Architecture
+
+The project has been refactored to use a modular architecture with the following components:
+
+- **core**: Core components including configuration management, logging, and event management
+- **processing**: Processing components including transcription, analysis, and output formatting
+- **storage**: Storage components including cache management
+- **monitoring**: Monitoring components
+
 ## Technologies Used
 
 *   **Bash:** For the main automation wrapper script.
 *   **FFmpeg:** For extracting audio from video files.
-*   **Python:** For interacting with Deepgram and NVIDIA APIs, processing transcripts, and formatting output for Obsidian.
+*   **Python:** For the new modular architecture and interacting with Deepgram and NVIDIA APIs.
 *   **`requests` (Python library):** For making HTTP requests to Deepgram and NVIDIA servers.
 *   **Deepgram:** For high-performance audio/video transcription.
 *   **NVIDIA API:** For accessing NVIDIA Large Language Models for semantic analysis of transcripts.
@@ -58,10 +67,10 @@ Before running the project, ensure you have the following installed and configur
     cd /home/nick/Projects/obsidian-ai-automator
     git init
     echo "# Obsidian AI Automator" > README.md
-    echo "*.mp3" >> .gitignore
-    echo "*.wav" >> .gitignore
-    echo "*.json" >> .gitignore
-    echo "Очистка от больших медиа и временных файлов" >> .gitignore
+    echo "/*.mp3" >> .gitignore
+    echo "/*.wav" >> .gitignore
+    echo "/*.json" >> .gitignore
+    echo "Cleanup of large media and temporary files" >> .gitignore
     git add .
     git commit -m "Initial commit: Setup project structure and .gitignore"
     mkdir scripts
