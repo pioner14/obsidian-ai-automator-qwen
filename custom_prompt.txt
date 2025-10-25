@@ -17,7 +17,7 @@
 ```markdown
 ---
 title: Твой сгенерированный заголовок
-tags: [jw, research, transcript, {NVIDIA_MODEL}]
+tags: [{DEFAULT_TAGS}]
 ---
 
 ## Анализ: Ключевые Примеры (Наглядные Пособия)

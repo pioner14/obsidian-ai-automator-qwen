@@ -24,9 +24,11 @@ class PromptManager:
         try:
             self.custom_prompt_file = self.config.get('LLM', 'custom_prompt_file', fallback='custom_prompt.txt')
             self.forbidden_tags = [tag.strip() for tag in self.config.get('LLM', 'forbidden_tags', fallback='').split(',') if tag.strip()]
+            self.default_tags = [tag.strip() for tag in self.config.get('LLM', 'default_tags', fallback='jw, research, transcript, {NVIDIA_MODEL}').split(',') if tag.strip()]
         except configparser.NoSectionError:
             self.custom_prompt_file = 'custom_prompt.txt'
             self.forbidden_tags = []
+            self.default_tags = ['jw', 'research', 'transcript', '{NVIDIA_MODEL}']
     
     def get_analysis_prompt(self, transcript, nvidia_model):
         """
@@ -62,7 +64,7 @@ class PromptManager:
             ```markdown
             ---
             title: Твой сгенерированный заголовок
-            tags: [jw, research, transcript, {NVIDIA_MODEL}]
+            tags: [{DEFAULT_TAGS}]
             ---
 
             ## Анализ: Ключевые Примеры (Наглядные Пособия)
@@ -82,10 +84,20 @@ class PromptManager:
         
         # Подставляем переменные в шаблон промпта
         forbidden_tags_str = ", ".join(self.forbidden_tags) if self.forbidden_tags else "нет запрещенных тегов"
+        # Форматируем теги для YAML frontmatter, подставляя модель NVIDIA
+        formatted_tags = []
+        for tag in self.default_tags:
+            if tag == "{NVIDIA_MODEL}":
+                formatted_tags.append(nvidia_model)
+            else:
+                formatted_tags.append(tag)
+        tags_str = ", ".join(formatted_tags)
+        
         prompt = prompt_template.format(
             FORBIDDEN_TAGS=forbidden_tags_str,
             NVIDIA_MODEL=nvidia_model,
-            transcript=transcript
+            transcript=transcript,
+            DEFAULT_TAGS=tags_str
         )
         
         return prompt

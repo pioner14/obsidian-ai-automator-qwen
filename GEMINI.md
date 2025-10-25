@@ -53,7 +53,25 @@ Before running the project, ensure you have the following installed and configur
 
     [File_Filtering]
     allowed_extensions = .mp4, .mov, .avi, .mp3, .wav
+
+    [LLM]
+    # Пользовательские инструкции для LLM
+    custom_prompt_file = custom_prompt.txt
+    # Теги, которые не должны использоваться в заметках (оставьте пустым, если не нужно запрещать теги)
+    forbidden_tags = 
+    # Теги по умолчанию, которые будут добавлены к каждой заметке (разделяйте запятыми)
+    default_tags = jw, research, transcript, {NVIDIA_MODEL}
+
+    [Logging]
+    level = INFO
+    # Доступные уровни: DEBUG, INFO, WARNING, ERROR, CRITICAL
     ```
+7.  **Custom LLM Prompt:**
+    You can customize the prompt used by the LLM for analysis by creating a `custom_prompt.txt` file in the project root. The LLM will use this custom prompt instead of the default one. The custom prompt can include placeholders like `{transcript}`, `{NVIDIA_MODEL}`, and `{FORBIDDEN_TAGS}` which will be replaced with actual values during processing.
+8.  **Configurable Logging Level:**
+    You can configure the logging level by setting the `level` parameter in the `[Logging]` section of the `config.ini` file. Available levels are: DEBUG, INFO, WARNING, ERROR, and CRITICAL.
+9.  **Duplicate File Handling:**
+    The system automatically detects and prevents processing of duplicate files using SHA-256 hashing. If a file with the same content has already been processed, it will be skipped. Hashes of processed files are stored in the `.hash_cache` directory.
 7.  **Obsidian Vault:**
     Ensure `obsidian_vault_path` in `config.ini` is correctly set to the desired directory within your Obsidian vault where notes should be saved (e.g., `/home/nick/Obsidian_Vault/Auto_Notes`).
 
