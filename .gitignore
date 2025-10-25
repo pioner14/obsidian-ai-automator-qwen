@@ -1,9 +1,27 @@
+# Временные аудио и медиа файлы
 *.mp3
 *.wav
 *.json
-Очистка от больших медиа и временных файлов
-.deepgram_api_key
-ai_analyzer.logFUTURE_IMPROVEMENTS.md
-config.ini
-.deepgram_cache/
+
+# Лог-файлы
+*.log
+.ai_analyzer.log
 .inotify_monitor.log
+.modular_watch_and_transcribe.log
+
+# API ключи
+*.api_key
+.deepgram_api_key
+.nvidia_api_key
+
+# Кэш
+.deepgram_cache/
+.hash_cache/
+__pycache__/
+*.pyc
+
+# Конфигурационный файл
+config.ini
+
+# Другие файлы
+.obsidian/
