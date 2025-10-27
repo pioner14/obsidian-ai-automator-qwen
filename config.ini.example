@@ -11,7 +11,7 @@ model = deepseek-ai/deepseek-v3.1-terminus
 allowed_extensions = .mp4, .mov, .avi, .mp3, .wav
 
 [Notifications]
-type = telegram
+type = none
 ; Доступные типы: none, email, telegram
 ; Включить уведомления об успешных операциях (по умолчанию: false)
 success_notifications = false
@@ -24,8 +24,8 @@ success_notifications = false
 ; recipient_email = recipient@gmail.com
 
 ; Настройки для Telegram уведомлений
-telegram_bot_token = 8277878393:AAF49h_lExvpw40LHyVVWJAe4dsJXw0Ai-Q
-telegram_chat_id = 6012855770
+; telegram_bot_token = 8277878393:AAF49h_lExvpw40LHyVVWJAe4dsJXw0Ai-Q
+; telegram_chat_id = 6012855770
 
 [Logging]
 level = INFO
@@ -36,3 +36,13 @@ level = INFO
 custom_prompt_file = custom_prompt.txt
 ; Теги, которые не должны использоваться в заметках (оставьте пустым, если не нужно запрещать теги)
 forbidden_tags = 
+; Теги по умолчанию, которые будут добавлены к каждой заметке (разделяйте запятыми)
+default_tags = jw, research, transcript, {NVIDIA_MODEL}
+
+[Processing]
+max_parallel_processes = 2
+transcription_provider = local_whisper
+; Доступные провайдеры транскрибации: deepgram, openai, whisper, ollama, local_whisper
+analysis_provider = nvidia
+; Доступные провайдеры анализа: nvidia, openai
+output_format = obsidian
