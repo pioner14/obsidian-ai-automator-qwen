@@ -5,6 +5,8 @@ from typing import Type, Callable, Any
 import functools
 import logging
 from obsidian_ai_automator.core.logger import Logger
+from obsidian_ai_automator.core.event_manager import EventManager
+from obsidian_ai_automator.core.config import ConfigManager
 
 
 class ProcessingError(Exception):
@@ -100,8 +102,12 @@ class ErrorHandler:
     Класс для централизованной обработки ошибок
     """
     
-    def __init__(self):
+    def __init__(self, config: ConfigManager = None):
         self.logger = Logger()
+        self.config = config
+        self.event_manager = EventManager(config) if config else None
+        if self.event_manager:
+            self.event_manager.add_notification_handler()
     
     def handle_transcription_error(self, error: Exception, file_path: str = None) -> None:
         """Обработка ошибки транскрибации"""
@@ -111,7 +117,10 @@ class ErrorHandler:
         error_msg += f": {error}"
         
         self.logger.error(error_msg)
-        # Здесь можно добавить дополнительную логику обработки ошибки
+        
+        # Отправляем уведомление об ошибке
+        if self.event_manager:
+            self.event_manager.emit_notification(error_msg, "ERROR")
     
     def handle_analysis_error(self, error: Exception, transcript: str = None) -> None:
         """Обработка ошибки анализа"""
@@ -121,7 +130,10 @@ class ErrorHandler:
         error_msg += f": {error}"
         
         self.logger.error(error_msg)
-        # Здесь можно добавить дополнительную логику обработки ошибки
+        
+        # Отправляем уведомление об ошибке
+        if self.event_manager:
+            self.event_manager.emit_notification(error_msg, "ERROR")
     
     def handle_output_error(self, error: Exception, content: str = None) -> None:
         """Обработка ошибки форматирования вывода"""
@@ -131,7 +143,10 @@ class ErrorHandler:
         error_msg += f": {error}"
         
         self.logger.error(error_msg)
-        # Здесь можно добавить дополнительную логику обработки ошибки
+        
+        # Отправляем уведомление об ошибке
+        if self.event_manager:
+            self.event_manager.emit_notification(error_msg, "ERROR")
     
     def handle_config_error(self, error: Exception, config_key: str = None) -> None:
         """Обработка ошибки конфигурации"""
@@ -141,4 +156,7 @@ class ErrorHandler:
         error_msg += f": {error}"
         
         self.logger.error(error_msg)
-        # Здесь можно добавить дополнительную логику обработки ошибки
+        
+        # Отправляем уведомление об ошибке
+        if self.event_manager:
+            self.event_manager.emit_notification(error_msg, "ERROR")

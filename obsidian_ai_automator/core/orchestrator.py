@@ -19,13 +19,16 @@ class ProcessingOrchestrator:
     def __init__(self, config_file_path: str = "config.ini"):
         self.config = ConfigManager(config_file_path)
         self.logger = Logger()
-        self.event_manager = EventManager()
+        self.event_manager = EventManager(self.config)
         self.cache_manager = CacheManager()
-        self.error_handler = ErrorHandler()
+        self.error_handler = ErrorHandler(self.config)
         
         # Инициализируем логирование
         log_level = self.config.get('Logging', 'level', fallback='INFO')
         self.logger.setup_logger(level=log_level)
+        
+        # Подписываемся на события уведомлений
+        self.event_manager.add_notification_handler()
         
         # Инициализируем компоненты в зависимости от конфигурации
         self._initialize_components()
