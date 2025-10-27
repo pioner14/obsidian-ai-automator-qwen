@@ -56,6 +56,12 @@ class AsyncProcessingOrchestrator:
         elif transcription_provider == 'whisper':
             from obsidian_ai_automator.processing.transcription.whisper_transcriber import WhisperTranscriber
             self.transcriber = WhisperTranscriber()
+        elif transcription_provider == 'ollama':
+            from obsidian_ai_automator.processing.transcription.ollama_transcriber import OllamaTranscriber
+            self.transcriber = OllamaTranscriber()
+        elif transcription_provider == 'local_whisper':
+            from obsidian_ai_automator.processing.transcription.local_whisper_transcriber import LocalWhisperTranscriber
+            self.transcriber = LocalWhisperTranscriber()
         else:
             raise ValueError(f"Неподдерживаемый провайдер транскрибации: {transcription_provider}")
         
