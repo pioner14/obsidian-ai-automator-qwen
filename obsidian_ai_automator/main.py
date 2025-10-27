@@ -4,7 +4,9 @@
 """
 import sys
 import os
+import asyncio
 from obsidian_ai_automator.core.orchestrator import ProcessingOrchestrator
+from obsidian_ai_automator.core.async_orchestrator import AsyncProcessingOrchestrator
 
 
 def main():
@@ -23,14 +25,19 @@ def main():
                 file_path = os.path.join(root, file)
                 file_paths.append(file_path)
         
-        orchestrator = ProcessingOrchestrator()
-        results = orchestrator.process_multiple_files(file_paths)
+        # Используем асинхронный оркестратор для параллельной обработки
+        async def process_multiple():
+            orchestrator = AsyncProcessingOrchestrator()
+            results = await orchestrator.process_multiple_files_async(file_paths)
+            return results
+        
+        results = asyncio.run(process_multiple())
         
         print(f"Обработано файлов: {len(results)}")
         for result in results:
             print(f"Создан файл: {result}")
     else:
-        # Если это отдельный файл, обрабатываем его
+        # Если это отдельный файл, обрабатываем его синхронно
         orchestrator = ProcessingOrchestrator()
         result = orchestrator.process_file(input_path)
         

@@ -6,6 +6,7 @@ from .logger import Logger
 from .event_manager import EventManager
 from .error_handler import ErrorHandler, TranscriptionError, AnalysisError, OutputError
 from .orchestrator import ProcessingOrchestrator
+from .async_orchestrator import AsyncProcessingOrchestrator
 
 __all__ = [
     'ConfigManager',
@@ -15,5 +16,6 @@ __all__ = [
     'TranscriptionError',
     'AnalysisError',
     'OutputError',
-    'ProcessingOrchestrator'
+    'ProcessingOrchestrator',
+    'AsyncProcessingOrchestrator'
 ]
