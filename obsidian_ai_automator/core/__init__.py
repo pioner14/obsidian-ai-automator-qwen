@@ -7,6 +7,7 @@ from .event_manager import EventManager
 from .error_handler import ErrorHandler, TranscriptionError, AnalysisError, OutputError
 from .orchestrator import ProcessingOrchestrator
 from .async_orchestrator import AsyncProcessingOrchestrator
+from .analytics import MetricsCollector
 
 __all__ = [
     'ConfigManager',
@@ -17,5 +18,6 @@ __all__ = [
     'AnalysisError',
     'OutputError',
     'ProcessingOrchestrator',
-    'AsyncProcessingOrchestrator'
+    'AsyncProcessingOrchestrator',
+    'MetricsCollector'
 ]
