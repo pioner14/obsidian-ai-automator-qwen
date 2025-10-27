@@ -23,7 +23,7 @@ echo "-> 1/2: Транскрипция (Deepgram API) и анализ LLM (NVIDI
 PYTHON_SCRIPT_PATH="$(pwd)/scripts/ai_analyzer.py" 
 
 # Запускаем Python скрипт и сохраняем результат и код возврата
-OUTPUT=$(source venv/bin/activate && python "$PYTHON_SCRIPT_PATH" "$INPUT_VIDEO" 2>&1)
+OUTPUT=$(./venv/bin/python "$PYTHON_SCRIPT_PATH" "$INPUT_VIDEO" 2>&1)
 EXIT_CODE=$?
 
 # Проверяем успешность выполнения и наличие пути к созданному файлу
