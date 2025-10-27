@@ -50,6 +50,12 @@ class AsyncProcessingOrchestrator:
         transcription_provider = processing_config['transcription_provider']
         if transcription_provider == 'deepgram':
             self.transcriber = DeepgramTranscriber()
+        elif transcription_provider == 'openai':
+            from obsidian_ai_automator.processing.transcription.openai_transcriber import OpenAITranscriber
+            self.transcriber = OpenAITranscriber()
+        elif transcription_provider == 'whisper':
+            from obsidian_ai_automator.processing.transcription.whisper_transcriber import WhisperTranscriber
+            self.transcriber = WhisperTranscriber()
         else:
             raise ValueError(f"Неподдерживаемый провайдер транскрибации: {transcription_provider}")
         
@@ -57,6 +63,9 @@ class AsyncProcessingOrchestrator:
         analysis_provider = processing_config['analysis_provider']
         if analysis_provider == 'nvidia':
             self.analyzer = NvidiaAnalyzer()
+        elif analysis_provider == 'openai':
+            from obsidian_ai_automator.processing.analysis.openai_analyzer import OpenAIAnalyzer
+            self.analyzer = OpenAIAnalyzer()
         else:
             raise ValueError(f"Неподдерживаемый провайдер анализа: {analysis_provider}")
         
